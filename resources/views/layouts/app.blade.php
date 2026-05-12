@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('', 'HomeBox') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link href="../resources/css/app.css" rel="stylesheet" />
 
     <!-- Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
+<body class="font" class="font-sans antialiased">
+    <div class="min-h-screen pt-16">
         <!-- Единая шапка для всех -->
-        <nav class="bg-white border-b border-gray-100">
+        <nav class="fixed top-0 left-0 w-full bg-white border-b border-gray-100 opacity-90 z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <!-- Левая часть - логотип и навигация -->
                     <div class="flex">
-                        <div class="shrink-0 flex items-center">
+                        <div class="text-18px shrink-0 flex items-center">
                             <a href="{{ route('/') }}">
                                 <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                             </a>
@@ -32,8 +34,9 @@
                             <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                                 {{ __('О нас') }}
                             </x-nav-link>
+                        </div>
 
-                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                             <x-nav-link :href="route('complexes')" :active="request()->routeIs('complexes')">
                                 {{ __('Комплексы') }}
                             </x-nav-link>
@@ -44,14 +47,13 @@
                                 {{ __('Контейнеры') }}
                             </x-nav-link>
                         </div>
-                        </div>
                     </div>
 
                     <!-- Правая часть - зависит от авторизации -->
                     <div class="hidden sm:flex sm:items-center sm:ms-6">
                         @auth
                             <!-- Выпадающее меню для авторизованных -->
-                            <x-dropdown align="right" width="48">
+                            <x-dropdown align="right" width="48" class="z-50">
                                 <x-slot name="trigger">
                                     <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                         <div>{{ Auth::user()->name }}</div>
@@ -88,8 +90,8 @@
                         @else
                             <!-- Ссылки для гостей -->
                             <div class="space-x-4">
-                                <a href="{{ route('login') }}" class="text-sm text-gray-500 hover:text-gray-700">Вход</a>
-                                <a href="{{ route('register') }}" class="text-sm text-gray-500 hover:text-gray-700">Регистрация</a>
+                                <a href="{{ route('login') }}" class="text-[16px] text-gray-500 hover:text-gray-700">Вход</a>
+                                <a href="{{ route('register') }}" class="text-[16px] text-gray-500 hover:text-gray-700">Регистрация</a>
                             </div>
                         @endauth
                     </div>
@@ -157,10 +159,15 @@
             </header>
         @endisset
 
-        <!-- Page Content -->
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Контент на странице -->
+        <main>
             @yield('content')
         </main>
+
+        <!-- Подвал -->
+        @if (!request()->routeIs('login') && !request()->routeIs('register'))
+            <x-footer/>
+        @endif
     </div>
 
     @stack('scripts')

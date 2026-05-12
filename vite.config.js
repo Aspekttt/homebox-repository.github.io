@@ -8,4 +8,23 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+
+    server: {
+        hmr: {
+            host: 'localhost',
+        },
+    },
+    optimizeDeps: {
+        include: ['alpinejs'],
+    },
+
+    publicDir: 'public',
+    build: {
+        assetsInlineLimit: 0,
+        rollupOptions: {
+            output: {
+                assetFileNames: 'assets/[name]-[hash][extname]'
+            }
+        }
+    }
 });

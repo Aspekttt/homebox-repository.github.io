@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('containers', function (Blueprint $table) {
             $table->id();
-            $table->string("residential_complex_id");
+            $table->foreignId("residential_complex_id")->constrained("residential_complexes")->onDelete('cascade');
             $table->string("number");
             $table->string("size_category");
             $table->string("area");

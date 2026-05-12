@@ -18,4 +18,9 @@ class containers extends Model
         "daily_price",
         "status",
     ];
+
+    public function residentialComplex()
+    {
+        return $this->belongsTo(residential_complexes::class, 'residential_complex_id');
+    }
 }

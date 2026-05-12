@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string("user_id")->constrained("users");
-            $table->string("container_id");
+            $table->foreignId("user_id")->constrained("users");
+            $table->foreignId("container_id")->constrained("containers");
             $table->string("start_date");
             $table->string("end_date");
             $table->string("total_price");

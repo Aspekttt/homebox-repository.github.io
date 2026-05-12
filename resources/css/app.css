@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.font {
+    font-family: 'Trebuchet MS';
+}
+
+summary {
+    display:block;
+}
+
+summary::before {
+    color: transparent;
+    background: url("/resources/img/arrow-bottom.svg") no-repeat 50% 50% / 1em 1em;
+    padding-right: 50px;
+    width: 20px;
+    height: 30px;
+    content: "";
+    float: right;
+    transition: transform .5s;
+}
+
+details[open] > summary:before {
+    transform: scale(1,-1);
+}
+
+summary ~ * {
+    font-size: 18px;
+    color: #595959;
+}
+
+details[open] summary ~ *{
+    animation: sweep 0.5s ease-in-out;
+}
+
+@keyframes sweep {
+    0%    {opacity: 0;}
+    100%  {opacity: 1;}
+}
+
+.marker-disc li::marker{
+    color: #179BFF;
+}

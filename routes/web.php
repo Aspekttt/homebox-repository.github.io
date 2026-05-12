@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\residential_complexes_controler;
+use App\Http\Controllers\containers_controller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,5 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/bookings', [ProfileController::class, 'bookings'])->name('profile.bookings');
     Route::get('/profile/booking-history', [ProfileController::class, 'booking_history'])->name('profile.booking-history');
 });
+
+Route::get('/complexes', [residential_complexes_controler::class, 'Residential_Complexes_Application'])->name('complexes');
+Route::get('/complexes/{id}', [residential_complexes_controler::class, 'Complex_Card_Show'])->name('complex_card');
+
+Route::get('/containers', [containers_controller::class, 'Containers_Application'])->name('containers');
+Route::get('/containers/{id}', [containers_controller::class, 'Containers_Show'])->name('container_card');
 
 require __DIR__.'/auth.php';
