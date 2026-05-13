@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class containers extends Model
 {
+    protected $table = 'containers';
+
     protected $fillable = [
         "residential_complex_id",
         "number",
@@ -19,8 +21,11 @@ class containers extends Model
         "status",
     ];
 
-    public function residentialComplex()
-    {
+    public function residentialComplex() {
         return $this->belongsTo(residential_complexes::class, 'residential_complex_id');
+    }
+
+    public function bookings() {
+        return $this->hasMany(bookings::class);
     }
 }

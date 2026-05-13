@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("start_date");
             $table->string("end_date");
             $table->string("total_price");
-            $table->string("status")->default("new");
+            $table->string("status")->default("Новая");
             $table->string("comment");
             $table->timestamps();
         });

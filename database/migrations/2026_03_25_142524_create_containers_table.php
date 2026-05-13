@@ -16,12 +16,12 @@ return new class extends Migration
             $table->foreignId("residential_complex_id")->constrained("residential_complexes")->onDelete('cascade');
             $table->string("number");
             $table->string("size_category");
-            $table->string("area");
-            $table->string("volume");
+            $table->decimal("area");
+            $table->decimal("volume");
             $table->string("floor_or_location");
             $table->string("description");
             $table->string("image");
-            $table->string("daily_price");
+            $table->decimal("daily_price");
             $table->string("status");
             $table->timestamps();
         });
