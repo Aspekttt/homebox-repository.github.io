@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class bookings extends Model
 {
+
     protected $fillable = [
         "user_id",
         "container_id",
@@ -21,6 +22,6 @@ class bookings extends Model
     }
 
     public function container() {
-        return $this->belongsTo(containers::class);
+        return $this->belongsTo(containers::class, 'container_id');
     }
 }

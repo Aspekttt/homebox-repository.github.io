@@ -29,16 +29,18 @@ class Bookings_Application extends Controller
             "container_id" => "required|exists:containers,id",
             "start_date"=>"required|date",
             "end_date"=>"required|date|after_or_equal:start_date",
-            "comment"=>"required|string",
         ]);
 
 
         $container = containers::findOrFail($request->container_id);
 
+        if (!$container->isAvailable($request->start_date, $request->end_date)) {
+            return redirect()->back()->with('error', 'Извините, этот контейнер уже забронирован на выбранные даты!')->withInput();
+        }
+
         $start = new \DateTime($request->start_date);
         $end = new \DateTime($request->end_date);
         $days = $start->diff($end)->days + 1;
-
         $total_price = $days * $container->daily_price;
 
 
@@ -52,7 +54,7 @@ class Bookings_Application extends Controller
         ]);
 
         $newrequest->save();
-        return redirect()->back()->with('success', 'Заявка на бронирование отправлена!');
+        return redirect()->back()->with('success', 'Заявка отправлена на рассмотрение!');
     }
 
     public function cancelBooking($id) {

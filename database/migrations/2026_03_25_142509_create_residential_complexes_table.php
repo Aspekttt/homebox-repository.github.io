@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("address");
             $table->string("description");
             $table->string("image");
-            $table->string("is_active");
+            $table->string("is_active")->default("true");
             $table->timestamps();
         });
     }

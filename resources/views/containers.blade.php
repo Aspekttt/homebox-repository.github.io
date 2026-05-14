@@ -7,13 +7,13 @@
                     <details open class="bg-[#F3F4F6] rounded-[20px] px-[20px] block overflow-hidden mb-[30px]  transition-colors duration-150">
                         <summary class="block text-black text-xl py-[20px] cursor-pointer hover:text-[#595959] transition-colors duration-150 summary">Жилой комплекс</summary>
                             <div class="ml-1">
-                                <div class="flex flex-row items-center gap-2">
+                                <div class="flex flex-row items-center pb-[15px] gap-2">
                                     <input id="complex_all" type="checkbox" value="all" name="complexes[]" class="rounded-[3px] complex-checkbox"
                                     {{ (!request()->has('complexes') || in_array('all', request()->get('complexes', []))) ? 'checked' : '' }}>
                                     <label for="complex_all" >Все</label>
                                 </div>
                                 @foreach($residentialComplexes as $complex)
-                                <div class="flex flex-row items-center gap-2 py-[15px]">
+                                <div class="flex flex-row items-center gap-2 pb-[15px]">
                                     <input id="complex_{{ $complex->id }}" type="checkbox" value="{{ $complex->id }}" name="complexes[]" class="rounded-[3px] complex-checkbox"
                                     {{ request()->has('complexes') && in_array($complex->id, request()->get('complexes', [])) ? 'checked' : '' }}>
                                     <label for="complex_{{ $complex->id }}">{{ $complex->title }}</label>
@@ -109,12 +109,21 @@
                 </div>
                 <div class="flex flex-row flex-wrap justify-between mt-[20px]">
                     @foreach ($per as $pere)
-                    <div class="bg-[#F3F4F6] rounded-[15px] max-w-[400px] border border-[#595959]/10 shadow-[4px_4px_10px_-5px_#71C2FF]">
+                    <div class="bg-[#F3F4F6] rounded-[15px] max-w-[400px] border border-[#595959]/10 shadow-[4px_4px_10px_-5px_#71C2FF] transition duration-150 hover:border-[#179BFF]/30 hover:shadow-[7px_7px_25px_-5px_#71C2FF]">
                         <div class="">
                             <img class="rounded-t-[14px] min-w-full min-h-full object-cover" src="{{  $pere -> image  }}">
                         </div>
                         <div class="p-[20px] flex flex-col items-start">
-                            <h4 class="text-[#58ABEA] border-2 border-[#58ABEA] rounded-[20px] px-[15px] py-[2px] mb-[10px]">{{  $pere -> status  }}</h4>
+                            <h4 class="border-2 rounded-[20px] px-[15px] py-[2px] mb-[10px]
+                                @if($pere->status == 'Доступный')
+                                    text-[#58ABEA] border-2 border-[#58ABEA]
+                                @elseif($pere->status == 'Занятый')
+                                    text-[#00A919] border-2 border-[#00A919]
+                                @elseif($pere->status == 'Недоступный')
+                                    text-[#FF9292] border-2 border-[#FF9292]
+                                @elseif($pere->status == 'Обслуживание')
+                                    text-[#D8A500] border-2 border-[#D8A500]
+                                @endif">{{  $pere -> status  }}</h4>
                             <h6 class="text-[#595959] text-18px mb-[5px]">Контейнер №{{  $pere -> number  }}</h6>
                             <p class="text-[#595959] text-16px mb-[15px]">Комплекс “{{ $pere -> residentialComplex-> title }}”</p>
                             <p class="text-[#595959] text-18px mb-[5px]">{{  $pere -> size_category  }}</p>

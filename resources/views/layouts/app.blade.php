@@ -47,6 +47,15 @@
                                 {{ __('Контейнеры') }}
                             </x-nav-link>
                         </div>
+                        @if (Auth::check())
+                            @if (Auth::user() -> role == "admin")
+                                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                                    {{ __('Админ Панель') }}
+                                </x-nav-link>
+                            </div>
+                            @endif
+                        @endif
                     </div>
 
                     <!-- Правая часть - зависит от авторизации -->

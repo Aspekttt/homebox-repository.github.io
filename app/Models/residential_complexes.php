@@ -13,4 +13,9 @@ class residential_complexes extends Model
         "image",
         "is_active",
     ];
+
+    public function containers()
+    {
+        return $this->hasMany(containers::class, 'residential_complex_id');
+    }
 }

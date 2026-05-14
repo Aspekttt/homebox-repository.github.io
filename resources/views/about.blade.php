@@ -23,22 +23,22 @@
                 <h2 class="text-32px">Аренда<span class="text-[#179BFF]"> за 5 минут</span>. Без визита в офис</h2>
                 <h3 class="text-20px pt-[80px]">Вы выбрали контейнер на плане — через 5 минут он ваш.<br> Вот пошаговая инструкция</h3>
                 <div class="flex text-center flex-row flex-wrap justify-between items-stretch py-[60px]">
-                    <div class="bg-white rounded-[30px] p-[20px] py-[40px] border border-[#71C2FF] shadow-[5px_5px_15px_-5px_#71C2FF]">
+                    <div class="bg-white rounded-[30px] p-[20px] py-[40px] border border-[#71C2FF]/70 shadow-[5px_5px_15px_-5px_#71C2FF] transition duration-150 hover:border-[#179BFF]/80 hover:shadow-[7px_7px_25px_-5px_#71C2FF]">
                         <h5 class="text-24px pb-[30px]">Выберите<br> контейнер</h5>
                         <p class="text-20px text-[#595959] pb-[30px]">Не знаете, какой<br> нужен? Фильтры<br> подскажут по вашим<br> критериям.</p>
                         <img src="/resources/img/chose_container.jpg" width="230px">
                     </div>
-                    <div class="bg-white rounded-[30px] p-[20px] py-[40px] border border-[#71C2FF] shadow-[5px_5px_15px_-5px_#71C2FF]">
+                    <div class="bg-white rounded-[30px] p-[20px] py-[40px] border border-[#71C2FF]/70 shadow-[5px_5px_15px_-5px_#71C2FF] transition duration-150 hover:border-[#179BFF]/80 hover:shadow-[7px_7px_25px_-5px_#71C2FF]">
                         <h5 class="text-24px pb-[30px]">Забронируйте<br> контейнер</h5>
                         <p class="text-20px text-[#595959] pb-[30px]">Нажмите кнопку — и<br> выдохните. Контейнер<br> уже ждёт.</p>
                         <img src="/resources/img/booking.jpg" width="230px">
                     </div>
-                    <div class="bg-white rounded-[30px] p-[20px] py-[40px] border border-[#71C2FF] shadow-[5px_5px_15px_-5px_#71C2FF]">
+                    <div class="bg-white rounded-[30px] p-[20px] py-[40px] border border-[#71C2FF]/70 shadow-[5px_5px_15px_-5px_#71C2FF] transition duration-150 hover:border-[#179BFF]/80 hover:shadow-[7px_7px_25px_-5px_#71C2FF]">
                         <h5 class="text-24px pb-[30px]">Заключите<br> договор</h5>
                         <p class="text-20px text-[#595959] pb-[5px]">В договоре всего 2<br> страницы. Без<br> мелкого шрифта и<br> подвохов.</p>
                         <img src="/resources/img/agreement.jpg" width="230px">
                     </div>
-                    <div class="bg-white rounded-[30px] p-[20px] py-[40px] border border-[#71C2FF] shadow-[5px_5px_15px_-5px_#71C2FF]">
+                    <div class="bg-white rounded-[30px] p-[20px] py-[40px] border border-[#71C2FF]/70 shadow-[5px_5px_15px_-5px_#71C2FF] transition duration-150 hover:border-[#179BFF]/80 hover:shadow-[7px_7px_25px_-5px_#71C2FF]">
                         <h5 class="text-24px pb-[30px]">Получите<br> доступ</h5>
                         <p class="text-20px text-[#595959] pb-[50px]">Ключи только у вас.<br> Даже мы не можем<br> зайти без вашего<br> разрешения.</p>
                         <img src="/resources/img/access.jpg" width="230px">

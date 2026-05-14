@@ -26,6 +26,16 @@ class containers extends Model
     }
 
     public function bookings() {
-        return $this->hasMany(bookings::class);
+        return $this->hasMany(bookings::class, 'container_id');
+    }
+
+    public function isAvailable($start_date, $end_date) {
+        $conflict = $this->bookings()->where(function($q) use ($start_date, $end_date) {
+                $q->whereBetween('start_date', [$start_date, $end_date])->orWhereBetween('end_date', [$start_date, $end_date])->orWhere(function($q2) use ($start_date, $end_date) {
+                      $q2->where('start_date', '<=', $start_date)->where('end_date', '>=', $end_date);
+                  });
+            })->whereIn('status', ['Новая', 'Подтверждена'])->exists();
+
+        return !$conflict;
     }
 }

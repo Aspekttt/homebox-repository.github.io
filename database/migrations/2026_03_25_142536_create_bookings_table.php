@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id")->constrained("users");
-            $table->foreignId("container_id")->constrained("containers");
-            $table->string("start_date");
-            $table->string("end_date");
-            $table->string("total_price");
+            $table->foreignId("user_id")->constrained("users")->onDelete('cascade');
+            $table->foreignId("container_id")->constrained("containers")->onDelete('cascade');
+            $table->date("start_date");
+            $table->date("end_date");
+            $table->decimal("total_price");
             $table->string("status")->default("Новая");
-            $table->string("comment");
+            $table->string("comment")->nullable();
             $table->timestamps();
         });
     }
