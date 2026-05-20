@@ -16,8 +16,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font" class="font-sans antialiased">
-    <div class="min-h-screen pt-16">
+<body class="font-sans antialiased font">
+    <div class="min-h-screen pt-16" x-data="{ open: false }">
         <!-- Единая шапка для всех -->
         <nav class="fixed top-0 left-0 w-full bg-white border-b border-gray-100 opacity-90 z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -118,11 +118,26 @@
             </div>
 
             <!-- Мобильное меню -->
-            <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+            <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" class="sm:hidden" style="display: none;">
                 <div class="pt-2 pb-3 space-y-1">
-                    <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <!-- Основные ссылки для мобильного меню -->
+                    <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
+                        {{ __('О нас') }}
                     </x-responsive-nav-link>
+
+                    <x-responsive-nav-link :href="route('complexes')" :active="request()->routeIs('complexes')">
+                        {{ __('Комплексы') }}
+                    </x-responsive-nav-link>
+
+                    <x-responsive-nav-link :href="route('containers')" :active="request()->routeIs('containers')">
+                        {{ __('Контейнеры') }}
+                    </x-responsive-nav-link>
+
+                    @if (Auth::check() && Auth::user()->role == "admin")
+                        <x-responsive-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                            {{ __('Админ Панель') }}
+                        </x-responsive-nav-link>
+                    @endif
                 </div>
 
                 <div class="pt-4 pb-1 border-t border-gray-200">
@@ -134,14 +149,22 @@
 
                         <div class="mt-3 space-y-1">
                             <x-responsive-nav-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
+                                {{ __('Профиль') }}
+                            </x-responsive-nav-link>
+
+                            <x-responsive-nav-link :href="route('profile.bookings')">
+                                {{ __('Мои бронирования') }}
+                            </x-responsive-nav-link>
+
+                            <x-responsive-nav-link :href="route('profile.booking-history')">
+                                {{ __('История аренд') }}
                             </x-responsive-nav-link>
 
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <x-responsive-nav-link :href="route('logout')"
                                         onclick="event.preventDefault(); this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Выход') }}
                                 </x-responsive-nav-link>
                             </form>
                         </div>

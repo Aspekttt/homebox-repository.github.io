@@ -2,11 +2,14 @@
     @section('content')
     @if (Auth::user() -> role == "admin")
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[80px] flex flex-col">
-            <div class="flex flex-row justify-between mb-[15px]">
-                <a href="{{  route("admin")  }}"><button class="text-[16px] text-white bg-[#71C2FF] rounded-[10px] px-[15px] py-[10px] mb-[10px] transition duration-150 hover:bg-[#179BFF]">Назад</button></a>
-                <div class="relative">
-                    <form method="GET" action="{{ route('admin.containers') }}" class="inline">
-                        <select name="sort" onchange="this.form.submit()" class="appearance-none bg-[#F3F4F6] border border-[#179BFF]/30 rounded-[10px] px-4 py-2 pr-8 text-[#595959] text-14px cursor-pointer focus:outline-none focus:border-[#179BFF] transition-colors duration-150">
+            <!-- Верхняя панель -->
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+                <a href="{{  route("admin")  }}" class="w-full sm:w-auto">
+                    <button class="text-[14px] sm:text-[16px] text-white bg-[#71C2FF] rounded-[10px] px-4 sm:px-5 py-2 sm:py-2.5 transition duration-150 hover:bg-[#179BFF] w-full sm:w-auto">Назад</button>
+                </a>
+                <div class="relative w-full sm:w-auto">
+                    <form method="GET" action="{{ route('admin.containers') }}" class="inline w-full">
+                        <select name="sort" onchange="this.form.submit()" class="appearance-none bg-[#F3F4F6] border border-[#179BFF]/30 rounded-[10px] px-4 py-2 pr-8 text-[#595959] text-[14px] cursor-pointer focus:outline-none focus:border-[#179BFF] transition-colors duration-150 w-full sm:w-auto">
                             <option value="default" {{ request('sort') == 'default' ? 'selected' : '' }}>Сортировка</option>
                             <option value="number_asc" {{ request('sort') == 'number_asc' ? 'selected' : '' }}>Номер (по возрастанию)</option>
                             <option value="number_desc" {{ request('sort') == 'number_desc' ? 'selected' : '' }}>Номер (по убыванию)</option>
@@ -17,9 +20,14 @@
                             <option value="status_asc" {{ request('sort') == 'status_asc' ? 'selected' : '' }}>Статус (А-Я)</option>
                             <option value="status_desc" {{ request('sort') == 'status_desc' ? 'selected' : '' }}>Статус (Я-А)</option>
                         </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-[#179BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
                     </form>
                 </div>
-                <button id="openModalBtn" class="text-[16px] text-white bg-[#00A919] rounded-[10px] px-[15px] py-[10px] mb-[10px] transition duration-150 hover:bg-[#00D520]">Добавить контейнер</button>
+                <button id="openModalBtn" class="text-[14px] sm:text-[16px] text-white bg-[#00A919] rounded-[10px] px-4 sm:px-5 py-2 sm:py-2.5 transition duration-150 hover:bg-[#00D520] w-full sm:w-auto"">Добавить контейнер</button>
             </div>
 
             @if(session('success'))
@@ -38,30 +46,30 @@
                 <table class="w-full text-center round">
                     <thead class="">
                         <tr class="text-[14px] transition duration-150 hover:bg-[#71C2FF]/30">
-                            <th class="p-2 border-[1px] border-[#71C2FF]">ЖК</th>
-                            <th class="p-2 border-[1px] border-[#71C2FF]">Номер контейнера</th>
-                            <th class="p-2 border-[1px] border-[#71C2FF]">Категория / Размер</th>
-                            <th class="p-2 border-[1px] border-[#71C2FF]">Площадь</th>
-                            <th class="p-2 border-[1px] border-[#71C2FF]">Объём</th>
-                            <th class="p-2 border-[1px] border-[#71C2FF]">Расположение</th>
-                            <th class="p-2 border-[1px] border-[#71C2FF]">Цена за день</th>
-                            <th class="p-2 border-[1px] border-[#71C2FF]">Статус</th>
-                            <th class="p-2 border-[1px] border-[#71C2FF]">Описание</th>
-                            <th class="p-2 border-[1px] border-[#71C2FF]">Фото</th>
-                            <th class="p-2 border-[1px] border-[#71C2FF]">Действие</th>
+                            <th class="p-2 sm:p-3 border-[1px] border-[#71C2FF]">ЖК</th>
+                            <th class="p-2 sm:p-3 border-[1px] border-[#71C2FF]">Номер контейнера</th>
+                            <th class="p-2 sm:p-3 border-[1px] border-[#71C2FF]">Категория / Размер</th>
+                            <th class="p-2 sm:p-3 border-[1px] border-[#71C2FF]">Площадь</th>
+                            <th class="p-2 sm:p-3 border-[1px] border-[#71C2FF]">Объём</th>
+                            <th class="p-2 sm:p-3 border-[1px] border-[#71C2FF]">Расположение</th>
+                            <th class="p-2 sm:p-3 border-[1px] border-[#71C2FF]">Цена за день</th>
+                            <th class="p-2 sm:p-3 border-[1px] border-[#71C2FF]">Статус</th>
+                            <th class="p-2 sm:p-3 border-[1px] border-[#71C2FF]">Описание</th>
+                            <th class="p-2 sm:p-3 border-[1px] border-[#71C2FF]">Фото</th>
+                            <th class="p-2 sm:p-3 border-[1px] border-[#71C2FF]">Действие</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($containers as $container)
                         <tr class="text-[14px] transition duration-150 hover:bg-[#71C2FF]/30">
-                            <td class="p-2 border-[1px] border-[#71C2FF] text-left">{{ $container->residentialComplex->title}}</td>
-                            <td class="p-2 border-[1px] border-[#71C2FF] text-center">{{ $container->number }}</td>
-                            <td class="p-2 border-[1px] border-[#71C2FF] text-center">{{ $container->size_category }}</td>
-                            <td class="p-2 border-[1px] border-[#71C2FF] text-center">{{ $container->area }} м²</td>
-                            <td class="p-2 border-[1px] border-[#71C2FF] text-center">{{ $container->volume }} м³</td>
-                            <td class="p-2 border-[1px] border-[#71C2FF] text-center">{{ $container->floor_or_location }}</td>
-                            <td class="p-2 border-[1px] border-[#71C2FF] text-center">{{ $container->daily_price }} ₽</td>
-                            <td class="p-2 border-[1px] border-[#71C2FF]  text-center">
+                            <td class="p-2 sm:p-3 border-[1px] border-[#71C2FF] text-[12px] sm:text-[14px] text-left">{{ $container->residentialComplex->title}}</td>
+                            <td class="p-2 sm:p-3 border-[1px] border-[#71C2FF] text-[12px] sm:text-[14px] text-center">{{ $container->number }}</td>
+                            <td class="p-2 sm:p-3 border-[1px] border-[#71C2FF] text-[12px] sm:text-[14px] text-center">{{ $container->size_category }}</td>
+                            <td class="p-2 sm:p-3 border-[1px] border-[#71C2FF] text-[12px] sm:text-[14px] text-center">{{ $container->area }} м²</td>
+                            <td class="p-2 sm:p-3 border-[1px] border-[#71C2FF] text-[12px] sm:text-[14px] text-center">{{ $container->volume }} м³</td>
+                            <td class="p-2 sm:p-3 border-[1px] border-[#71C2FF] text-[12px] sm:text-[14px] text-center">{{ $container->floor_or_location }}</td>
+                            <td class="p-2 sm:p-3 border-[1px] border-[#71C2FF] text-[12px] sm:text-[14px] text-center">{{ $container->daily_price }} ₽</td>
+                            <td class="p-2 sm:p-3 border-[1px] border-[#71C2FF] text-[12px] sm:text-[14px]  text-center">
                                 <span class="px-2 py-1 rounded-full text-xs border-[1px]
                                     @if($container->status == 'Доступный') border-[#58ABEA] text-[#58ABEA]
                                     @elseif($container->status == 'Занятый') border-[#00A919] text-[#00A919]
@@ -71,7 +79,7 @@
                                     {{ $container->status }}
                                 </span>
                             </td>
-                            <td class="p-2 border-[1px] border-[#71C2FF] text-[12px] text-left">{{ $container->description }}</td>
+                            <td class="p-2 border-[1px] border-[#71C2FF] text-[12px] text-left text-left max-w-[200px] md:max-w-[100px] truncate">{{ $container->description }}</td>
                             <td class="p-2 border-[1px] border-[#71C2FF] text-[12px] text-left">{{ $container->image }}</td>
                             <td class="p-2 border-[1px] border-[#71C2FF]">
                                 <button class="edit-btn text-[14px] text-white bg-[#71C2FF] mb-[5px] w-full rounded-[10px] px-[10px] py-[5px] transition duration-150 hover:bg-[#179BFF]"
@@ -169,7 +177,7 @@
 
                         <div class="mb-4 col-span-2">
                             <label class="block text-gray-700 text-sm font-bold mb-2">URL фотографии</label>
-                            <input type="text" name="image" required placeholder="/storage/containers/photo.jpg" class="w-full px-3 py-2 border border-gray-300 rounded-[10px] focus:outline-none focus:border-[#179BFF]">
+                            <input type="text" name="image" required placeholder="/resources/img/container_0.jpg" class="w-full px-3 py-2 border border-gray-300 rounded-[10px] focus:outline-none focus:border-[#179BFF]">
                         </div>
                     </div>
 

@@ -121,7 +121,7 @@ class Admin_Controller extends Controller
         }
 
         $containers = $query->get();
-        $complexes = residential_complexes::all(); // Для выпадающего списка в модальных окнах
+        $complexes = residential_complexes::all();
 
         return view('admin_panel.containers', compact('containers', 'complexes'));
     }
