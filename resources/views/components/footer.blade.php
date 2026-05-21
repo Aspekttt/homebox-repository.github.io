@@ -4,7 +4,7 @@
             <!-- Логотип и соцсети -->
             <div class="text-center sm:text-left">
                 <div class="flex flex-col sm:flex-row items-center sm:items-start mb-6">
-                    <img src="/resources/img/Logo.svg" width="80px" class="mb-4 sm:mb-0">
+                    <img src="{{  asset('img/Logo.svg')  }}" width="80px" class="mb-4 sm:mb-0">
                     <h4 class="text-32px text-black font-semibold sm:pl-4">ХоумБокс</h4>
                 </div>
                 <p class="text-[#595959] text-14px mb-6 hover:text-[#231F20] text-center sm:text-left">&copy; {{ date('Y') }} ХоумБокс. Все права защищены.</p>
