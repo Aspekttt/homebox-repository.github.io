@@ -55,9 +55,9 @@ class Admin_Controller extends Controller
         $complex = residential_complexes::findOrFail($id);
 
         $request->validate([
-            'title' => 'required|string',
-            'address' => 'required|string',
-            'description' => 'required|string',
+            'title' => 'required|string|max:55',
+            'address' => 'required|string|max:55',
+            'description' => 'required|string|max:400',
             'image' => 'nullable',
         ]);
 
@@ -74,9 +74,9 @@ class Admin_Controller extends Controller
 
     public function complexesStore(Request $request) {
         $request->validate([
-            'title' => 'required|string',
-            'address' => 'required|string',
-            'description' => 'required|string',
+            'title' => 'required|string|max:55',
+            'address' => 'required|string|max:55',
+            'description' => 'required|string|max:400',
             'image' => 'required|string',
         ]);
 
@@ -129,15 +129,15 @@ class Admin_Controller extends Controller
     public function containersStore(Request $request) {
         $request->validate([
             'residential_complex_id' => 'required|exists:residential_complexes,id',
-            'number' => 'required|string',
-            'size_category' => 'required|string',
-            'area' => 'required|numeric',
-            'volume' => 'required|numeric',
-            'floor_or_location' => 'required|string',
-            'description' => 'required|string',
+            'number' => 'required|string|max:55',
+            'size_category' => 'required|string|max:55',
+            'area' => 'required|numeric|max:200',
+            'volume' => 'required|numeric|max:400',
+            'floor_or_location' => 'required|string|max:55',
+            'description' => 'required|string|max:400',
             'daily_price' => 'required|numeric',
-            'status' => 'required|string',
-            'image' => 'required|string',
+            'status' => 'required|string|max:55',
+            'image' => 'required|string|max:55',
         ]);
 
         containers::create([
@@ -161,15 +161,15 @@ class Admin_Controller extends Controller
 
         $request->validate([
             'residential_complex_id' => 'required|exists:residential_complexes,id',
-            'number' => 'required|string',
-            'size_category' => 'required|string',
-            'area' => 'required|numeric',
-            'volume' => 'required|numeric',
-            'floor_or_location' => 'required|string',
-            'description' => 'required|string',
+            'number' => 'required|string|max:55',
+            'size_category' => 'required|string|max:55',
+            'area' => 'required|numeric|max:200',
+            'volume' => 'required|numeric|max:400',
+            'floor_or_location' => 'required|string|max:55',
+            'description' => 'required|string|max:400',
             'daily_price' => 'required|numeric',
-            'status' => 'required|string',
-            'image' => 'nullable|string',
+            'status' => 'required|string|max:55',
+            'image' => 'nullable|string|max:55',
         ]);
 
         $container->residential_complex_id = $request->residential_complex_id;
