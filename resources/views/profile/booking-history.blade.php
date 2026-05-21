@@ -9,7 +9,7 @@
             <div class="bg-white rounded-[20px] border-[1px] border-[#179BFF]/50 shadow-[5px_5px_15px_-5px_#71C2FF] flex flex-col md:flex-row overflow-hidden">
                 <!-- Изображение -->
                 <div class="w-full md:w-auto md:max-w-[350px] md:min-w-[280px] lg:max-w-[450px] lg:min-w-[350px] h-[200px] sm:h-[250px] md:h-auto">
-                    <img class="w-full h-full object-cover rounded-t-[15px] md:rounded-l-[15px] md:rounded-tr-none" src="{{ $booking->container->image }}" alt="Контейнер №{{ $booking->container->number }}">
+                    <img class="w-full h-full object-cover rounded-t-[15px] md:rounded-l-[15px] md:rounded-tr-none" src="{{  asset('$booking->container->image')  }}" alt="Контейнер №{{ $booking->container->number }}">
                 </div>
 
                 <!-- Контент -->

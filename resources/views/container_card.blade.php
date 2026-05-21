@@ -22,7 +22,7 @@
     @endif
 
     <div>
-        <img class="rounded-[20px] sm:rounded-[25px] lg:rounded-[35px] border-[1px] border-[#179BFF]/50 shadow-[5px_5px_15px_-5px_#71C2FF] w-full h-[200px] sm:h-[280px] lg:h-[350px] object-cover" src="{{ $container->image }}" alt="Контейнер №{{ $container->number }}">
+        <img class="rounded-[20px] sm:rounded-[25px] lg:rounded-[35px] border-[1px] border-[#179BFF]/50 shadow-[5px_5px_15px_-5px_#71C2FF] w-full h-[200px] sm:h-[280px] lg:h-[350px] object-cover" src="{{  asset('$container->image')  }}" alt="Контейнер №{{ $container->number }}">
     </div>
 </div>
 
