@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="right_side mt-8 lg:mt-0">
-            <img src="/resources/img/welcome_img.jpg" class="hidden sm:block w-full max-w-[500px] lg:max-w-none h-auto rounded-[20px]" alt="Встречающяя картинка">
+            <img src="{{  asset(img/welcome_img.jpg)  }}" class="hidden sm:block w-full max-w-[500px] lg:max-w-none h-auto rounded-[20px]" alt="Встречающяя картинка">
         </div>
     </div>
 </div>
@@ -38,7 +38,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                 <div class="flex flex-col border-b border-[#179BFF] pb-4">
                     <div class="flex items-center pb-2">
-                        <img src="/resources/img/icon-num_1.png" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
+                        <img src="{{  asset(img/icon-num_1.png)  }}" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
                         <h3 class="text-20px sm:text-24px text-[#179BFF] px-3">Круглосуточный доступ</h3>
                     </div>
                     <p class="text-16px sm:text-18px text-[#595959]">Приходите за вещами в любое время. Никаких графиков работы и очередей — только вы и ваша кладовка.</p>
@@ -46,7 +46,7 @@
 
                 <div class="flex flex-col border-b border-[#179BFF] pb-4">
                     <div class="flex items-center pb-2">
-                        <img src="/resources/img/icon-num_2.png" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
+                        <img src="{{  asset(img/icon-num_2.png)  }}" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
                         <h3 class="text-20px sm:text-24px text-[#179BFF] px-3">Личная безопасность</h3>
                     </div>
                     <p class="text-16px sm:text-18px text-[#595959]">Каждый контейнер запирается на ваш личный замок. Доступ посторонних исключен. Вы единственный владелец ключа.</p>
@@ -54,7 +54,7 @@
 
                 <div class="flex flex-col border-b border-[#179BFF] pb-4">
                     <div class="flex items-center pb-2">
-                        <img src="/resources/img/icon-num_3.png" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
+                        <img src="{{  asset(img/icon-num_3.png)  }}" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
                         <h3 class="text-20px sm:text-24px text-[#179BFF] px-3">Чистота и порядок</h3>
                     </div>
                     <p class="text-16px sm:text-18px text-[#595959]">Регулярная уборка общих зон, сухие и проветриваемые помещения. Ваши вещи не отсыреют и не испортятся.</p>
@@ -62,7 +62,7 @@
 
                 <div class="flex flex-col border-b border-[#179BFF] pb-4">
                     <div class="flex items-center pb-2">
-                        <img src="/resources/img/icon-num_4.png" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
+                        <img src="{{  asset(img/icon-num_4.png)  }}" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
                         <h3 class="text-20px sm:text-24px text-[#179BFF] px-3">Размеры на любой запрос</h3>
                     </div>
                     <p class="text-16px sm:text-18px text-[#595959]">Контейнеры разного объема — от компактных для коробок до просторных для мебели и велосипедов.</p>
@@ -70,7 +70,7 @@
 
                 <div class="flex flex-col border-b border-[#179BFF] pb-4">
                     <div class="flex items-center pb-2">
-                        <img src="/resources/img/icon-num_5.png" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
+                        <img src="{{  asset(img/icon-num_5.png)  }}" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
                         <h3 class="text-20px sm:text-24px text-[#179BFF] px-3">Гибкая аренда</h3>
                     </div>
                     <p class="text-16px sm:text-18px text-[#595959]">Оплата по дням без долгосрочных контрактов. Начали пользоваться — арендуете, перестали — закрываете договор.</p>
@@ -78,7 +78,7 @@
 
                 <div class="flex flex-col border-b border-[#179BFF] pb-4">
                     <div class="flex items-center pb-2">
-                        <img src="/resources/img/icon-num_6.png" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
+                        <img src="{{  asset(img/icon-num_6.png)  }}" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
                         <h3 class="text-20px sm:text-24px text-[#179BFF] px-3">Прозрачные тарифы</h3>
                     </div>
                     <p class="text-16px sm:text-18px text-[#595959]">Фиксированная стоимость за день. Никаких скрытых комиссий, платы за въезд или дополнительных начислений.</p>
