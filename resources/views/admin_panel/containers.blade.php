@@ -177,7 +177,7 @@
 
                         <div class="mb-4 col-span-2">
                             <label class="block text-gray-700 text-sm font-bold mb-2">URL фотографии</label>
-                            <input type="text" name="image" required placeholder="{{  asset(img/container_0.jpg)  }}" class="w-full px-3 py-2 border border-gray-300 rounded-[10px] focus:outline-none focus:border-[#179BFF]">
+                            <input type="text" name="image" required placeholder="{{  asset('img/container_0.jpg')  }}" class="w-full px-3 py-2 border border-gray-300 rounded-[10px] focus:outline-none focus:border-[#179BFF]">
                         </div>
                     </div>
 
