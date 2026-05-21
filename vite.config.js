@@ -8,7 +8,7 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-
+    base: '/build/',
     server: {
         hmr: {
             host: 'localhost',
@@ -17,7 +17,6 @@ export default defineConfig({
     optimizeDeps: {
         include: ['alpinejs'],
     },
-
     publicDir: 'public',
     build: {
         assetsInlineLimit: 0,
