@@ -38,7 +38,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                 <div class="flex flex-col border-b border-[#179BFF] pb-4">
                     <div class="flex items-center pb-2">
-                        <img src="{{  asset'(img/icon-num_1.png')  }}" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
+                        <img src="{{  asset('img/icon-num_1.png')  }}" width="40px" height="40px" class="w-8 h-8 sm:w-10 sm:h-10">
                         <h3 class="text-20px sm:text-24px text-[#179BFF] px-3">Круглосуточный доступ</h3>
                     </div>
                     <p class="text-16px sm:text-18px text-[#595959]">Приходите за вещами в любое время. Никаких графиков работы и очередей — только вы и ваша кладовка.</p>
