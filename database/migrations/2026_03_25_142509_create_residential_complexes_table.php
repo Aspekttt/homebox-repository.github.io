@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('residential_complexes', function (Blueprint $table) {
             $table->id();
-            $table->string("title");
-            $table->string("address");
-            $table->string("description");
-            $table->string("image");
-            $table->string("is_active")->default("true");
+            $table->string("title", 55);
+            $table->string("address", 55);
+            $table->string("description", 400);
+            $table->string("image", 255);
+            $table->boolean("is_active")->default("true");
             $table->timestamps();
         });
     }

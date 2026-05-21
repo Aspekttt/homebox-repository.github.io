@@ -77,7 +77,7 @@ class Admin_Controller extends Controller
             'title' => 'required|string|max:55',
             'address' => 'required|string|max:55',
             'description' => 'required|string|max:400',
-            'image' => 'required|string',
+            'image' => 'required|string|max:255',
         ]);
 
         residential_complexes::create([
@@ -131,13 +131,13 @@ class Admin_Controller extends Controller
             'residential_complex_id' => 'required|exists:residential_complexes,id',
             'number' => 'required|string|max:55',
             'size_category' => 'required|string|max:55',
-            'area' => 'required|numeric|max:200',
-            'volume' => 'required|numeric|max:400',
+            'area' => 'required|numeric|max:300',
+            'volume' => 'required|numeric|max:3000',
             'floor_or_location' => 'required|string|max:55',
             'description' => 'required|string|max:400',
-            'daily_price' => 'required|numeric',
+            'daily_price' => 'required|numeric|min:0|max:10000',
             'status' => 'required|string|max:55',
-            'image' => 'required|string|max:55',
+            'image' => 'required|string|max:255',
         ]);
 
         containers::create([
@@ -163,13 +163,13 @@ class Admin_Controller extends Controller
             'residential_complex_id' => 'required|exists:residential_complexes,id',
             'number' => 'required|string|max:55',
             'size_category' => 'required|string|max:55',
-            'area' => 'required|numeric|max:200',
-            'volume' => 'required|numeric|max:400',
+            'area' => 'required|numeric|max:300',
+            'volume' => 'required|numeric|max:3000',
             'floor_or_location' => 'required|string|max:55',
             'description' => 'required|string|max:400',
-            'daily_price' => 'required|numeric',
+            'daily_price' => 'required|numeric|min:0|max:10000',
             'status' => 'required|string|max:55',
-            'image' => 'nullable|string|max:55',
+            'image' => 'nullable|string|max:255',
         ]);
 
         $container->residential_complex_id = $request->residential_complex_id;

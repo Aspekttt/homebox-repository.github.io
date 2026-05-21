@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('containers', function (Blueprint $table) {
             $table->id();
             $table->foreignId("residential_complex_id")->constrained("residential_complexes")->onDelete('cascade');
-            $table->string("number");
-            $table->string("size_category");
-            $table->decimal("area");
-            $table->decimal("volume");
-            $table->string("floor_or_location");
-            $table->string("description");
-            $table->string("image");
-            $table->decimal("daily_price");
-            $table->string("status");
+            $table->string("number", 55);
+            $table->string("size_category", 55);
+            $table->decimal("area", 10, 2);
+            $table->decimal("volume", 10, 2);
+            $table->string("floor_or_location", 55);
+            $table->string("description", 400);
+            $table->string("image", 55);
+            $table->decimal("daily_price", 10, 2);
+            $table->string("status", 55);
             $table->timestamps();
         });
     }
