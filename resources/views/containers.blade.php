@@ -117,7 +117,7 @@
             @foreach ($per as $pere)
             <div class="bg-[#F3F4F6] rounded-[15px] border border-[#595959]/10 shadow-[4px_4px_10px_-5px_#71C2FF] transition duration-150 hover:border-[#179BFF]/30 hover:shadow-[7px_7px_25px_-5px_#71C2FF] h-full">
                 <div class="overflow-hidden rounded-t-[14px]">
-                    <img class="w-full h-[200px] sm:h-[220px] object-cover transition duration-300 hover:scale-105" src="{{  asset('$pere->image')  }}" alt="Контейнер №{{ $pere->number }}">
+                    <img class="w-full h-[200px] sm:h-[220px] object-cover transition duration-300 hover:scale-105" src="{{  asset($pere->image)  }}" alt="Контейнер №{{ $pere->number }}">
                 </div>
                 <div class="p-[20px] flex flex-col items-start">
                     <h4 class="border-2 rounded-[20px] px-[15px] py-[2px] mb-[10px]
