@@ -6,7 +6,7 @@
 
         <!-- Изображение -->
         <div class="w-full lg:w-auto lg:max-w-[333px] lg:min-w-[333px] h-[250px] sm:h-[300px] lg:h-[333px]">
-            <img class="w-full h-full object-cover rounded-t-[18px] lg:rounded-l-[18px] lg:rounded-tr-none" src="{{  asset('$elem->image')  }}" alt="{{ $elem->title }}">
+            <img class="w-full h-full object-cover rounded-t-[18px] lg:rounded-l-[18px] lg:rounded-tr-none" src="{{  asset($elem->image)  }}" alt="{{ $elem->title }}">
         </div>
 
         <!-- Контент -->
