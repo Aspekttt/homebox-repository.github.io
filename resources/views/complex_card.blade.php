@@ -10,8 +10,8 @@
 <!-- Информация о комплексе -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[30px] sm:pt-[40px] lg:pt-[50px]">
     <div class="bg-white rounded-[20px] border-[1px] border-[#179BFF]/50 shadow-[5px_5px_15px_-5px_#71C2FF] flex flex-col p-[15px] sm:p-[20px] lg:p-[25px]">
-        <h5 class="text-[18px] sm:text-[20px] pb-[10px] font-semibold">Комплекс "{{ $complex->title }}"</h5>
-        <p class="text-[16px] sm:text-[18px] text-[#595959]">{{ $complex->address }}</p>
+        <h5 class="text-[18px] sm:text-[20px] overflow-x-auto pb-[10px] font-semibold">Комплекс "{{ $complex->title }}"</h5>
+        <p class="text-[16px] sm:text-[18px] overflow-x-auto  text-[#595959]">{{ $complex->address }}</p>
     </div>
 </div>
 
@@ -19,7 +19,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[30px] sm:pt-[40px] lg:pt-[50px]">
     <div class="bg-white rounded-[20px] border-[1px] border-[#179BFF]/50 shadow-[5px_5px_15px_-5px_#71C2FF] flex flex-col mb-[20px] p-[15px] sm:p-[20px] lg:p-[25px]">
         <h5 class="text-[18px] sm:text-[20px] pb-[10px]">Описание</h5>
-        <p class="text-[16px] sm:text-[18px] text-[#595959] leading-relaxed">{{ $complex->description }}</p>
+        <p class="text-[16px] sm:text-[18px] text-[#595959] overflow-x-auto leading-relaxed">{{ $complex->description }}</p>
     </div>
 </div>
 

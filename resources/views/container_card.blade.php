@@ -41,9 +41,9 @@
                         @elseif($container->status == 'Обслуживание')
                             text-[#D8A500] border-[#D8A500]
                         @endif">{{ $container->status }}</h4>
-                    <h5 class="text-[18px] sm:text-[20px] pb-[10px]">Контейнер №{{ $container->number }}</h5>
+                    <h5 class="text-[18px] sm:text-[20px] overflow-x-auto pb-[10px]">Контейнер №{{ $container->number }}</h5>
                 </div>
-                <p class="text-[16px] sm:text-[18px] text-[#595959]">Комплекс "{{ $container->residentialComplex->title }}"</p>
+                <p class="text-[16px] sm:text-[18px] overflow-x-auto text-[#595959]">Комплекс "{{ $container->residentialComplex->title }}"</p>
             </div>
             <h5 class="text-[20px] sm:text-[24px] text-black font-semibold">{{ number_format($container->daily_price, 0, ',', ' ') }} ₽ / д.</h5>
         </div>
@@ -53,7 +53,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[30px] sm:pt-[40px] lg:pt-[50px]">
     <div class="bg-white rounded-[20px] border-[1px] border-[#179BFF]/50 shadow-[5px_5px_15px_-5px_#71C2FF] flex flex-col p-[15px] sm:p-[20px] lg:p-[25px]">
         <h5 class="text-[18px] sm:text-[20px] pb-[10px] font-semibold">Описание</h5>
-        <p class="text-[16px] sm:text-[18px] text-[#595959] leading-relaxed">{{ $container->description }}</p>
+        <p class="text-[16px] sm:text-[18px] overflow-x-auto text-[#595959] leading-relaxed">{{ $container->description }}</p>
     </div>
 </div>
 
