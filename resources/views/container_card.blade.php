@@ -80,12 +80,12 @@
 
                     <div class="mb-4 text-center">
                         <label class="text-[#595959] mb-2 block" for="start_date">Дата начала аренды</label>
-                        <input class="rounded-[10px] border border-gray-300 p-2 w-full focus:outline-none focus:border-[#179BFF]" required name="start_date" id="start_date" type="date">
+                        <input class="rounded-[10px] border border-gray-300 p-2 w-full focus:outline-none focus:border-[#179BFF]" min="{{ date('Y-m-d') }}" required name="start_date" id="start_date" type="date">
                     </div>
 
                     <div class="mb-4 text-center">
                         <label class="text-[#595959] mb-2 block" for="end_date">Дата окончания аренды</label>
-                        <input class="rounded-[10px] border border-gray-300 p-2 w-full focus:outline-none focus:border-[#179BFF]" required name="end_date" id="end_date" type="date">
+                        <input class="rounded-[10px] border border-gray-300 p-2 w-full focus:outline-none focus:border-[#179BFF]" min="{{ date('Y-m-d') }}" required name="end_date" id="end_date" type="date">
                     </div>
 
                     <div class="mb-4 text-center">
