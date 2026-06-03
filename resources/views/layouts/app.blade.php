@@ -4,14 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('', 'HomeBox') }}</title>
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -28,19 +24,16 @@
                                 <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                             </a>
                         </div>
-
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                             <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                                 {{ __('О нас') }}
                             </x-nav-link>
                         </div>
-
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                             <x-nav-link :href="route('complexes')" :active="request()->routeIs('complexes')">
                                 {{ __('Комплексы') }}
                             </x-nav-link>
                         </div>
-
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                             <x-nav-link :href="route('containers')" :active="request()->routeIs('containers')">
                                 {{ __('Контейнеры') }}
@@ -56,8 +49,7 @@
                             @endif
                         @endif
                     </div>
-
-                    <!-- Правая часть - зависит от авторизации -->
+                    <!-- Правая часть -->
                     <div class="hidden sm:flex sm:items-center sm:ms-6">
                         @auth
                             <!-- Выпадающее меню для авторизованных -->
@@ -77,15 +69,12 @@
                                     <x-dropdown-link :href="route('profile.edit')">
                                         {{ __('Профиль') }}
                                     </x-dropdown-link>
-
                                     <x-dropdown-link :href="route('profile.bookings')">
                                         {{ __('Мои бронирования') }}
                                     </x-dropdown-link>
-
                                     <x-dropdown-link :href="route('profile.booking-history')">
                                         {{ __('История аренд') }}
                                     </x-dropdown-link>
-
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <x-dropdown-link :href="route('logout')"
@@ -103,7 +92,6 @@
                             </div>
                         @endauth
                     </div>
-
                     <!-- Гамбургер для мобильных устройств -->
                     <div class="-me-2 flex items-center sm:hidden">
                         <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
@@ -115,7 +103,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Мобильное меню -->
             <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" class="sm:hidden" style="display: none;">
                 <div class="pt-2 pb-3 space-y-1">
@@ -123,29 +110,24 @@
                     <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('О нас') }}
                     </x-responsive-nav-link>
-
                     <x-responsive-nav-link :href="route('complexes')" :active="request()->routeIs('complexes')">
                         {{ __('Комплексы') }}
                     </x-responsive-nav-link>
-
                     <x-responsive-nav-link :href="route('containers')" :active="request()->routeIs('containers')">
                         {{ __('Контейнеры') }}
                     </x-responsive-nav-link>
-
                     @if (Auth::check() && Auth::user()->role == "admin")
                         <x-responsive-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
                             {{ __('Админ Панель') }}
                         </x-responsive-nav-link>
                     @endif
                 </div>
-
                 <div class="pt-4 pb-1 border-t border-gray-200">
                     @auth
                         <div class="px-4">
                             <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                             <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                         </div>
-
                         <div class="mt-3 space-y-1">
                             <x-responsive-nav-link :href="route('profile.edit')">
                                 {{ __('Профиль') }}
@@ -181,7 +163,6 @@
             </div>
         </nav>
 
-        <!-- Page Heading -->
         @isset($header)
             <header class="bg-white shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

@@ -26,7 +26,6 @@
                     </a>
                 </div>
             </div>
-
             <!-- Навигация -->
             <div class="text-center sm:text-left">
                 <h4 class="text-lg text-black font-semibold mb-4">Навигация</h4>
@@ -39,7 +38,6 @@
                     <li><a href="{{ route('profile.booking-history') }}" class="text-[#595959] hover:text-[#231F20] transition duration-150">История аренд</a></li>
                 </ul>
             </div>
-
             <!-- Контакты -->
             <div class="text-center sm:text-left">
                 <h4 class="text-lg text-black font-semibold mb-4">Контакты</h4>
@@ -49,7 +47,6 @@
                     <li class="text-[#595959] hover:text-[#231F20] transition duration-150">ул. Пушкина д. 117</li>
                 </ul>
             </div>
-
             <!-- Правовая информация -->
             <div class="text-center sm:text-left">
                 <h4 class="text-lg text-black font-semibold mb-4">Правовая информация</h4>
